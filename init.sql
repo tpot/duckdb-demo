@@ -1,3 +1,8 @@
+-- Link to raw data
+CREATE VIEW raw_names AS
+  SELECT * FROM read_csv('nat1900-2017.tsv');
+
+-- Create name table from raw data
 CREATE TABLE names AS
     SELECT
         -- Convert integer to string
@@ -16,4 +21,4 @@ CREATE TABLE names AS
         -- Number of births
         nombre AS first_name_count
     FROM
-        read_csv('nat1900-2017.tsv');
+        raw_names;
